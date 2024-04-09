@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 
 
-const burguerMenu = document.querySelector('.burger-menu')
+const burguerMenu = document.querySelector('.menu')
 const sideMenu = document.querySelector('.mobile-menu')
 const aside = document.querySelector('.product-detail')
 
@@ -36,7 +36,7 @@ productList.push({
     image:'./bike.jpeg',
 });
 productList.push({
-    name:'skateboard.jpeg',
+    name:'skateboard',
     price:90,
     image:'./skateboard.jpeg',
 });
@@ -76,6 +76,7 @@ function renderProducts(arr){
     
         cardContainer.append(productcard)
     }
+    console.log('funciona?');
 }
 
 renderProducts(productList)
