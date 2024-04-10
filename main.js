@@ -1,32 +1,48 @@
 const menuEmail = document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-
+const productCloseIcon = document.querySelector('.product-detail-close ')
 
 const burguerMenu = document.querySelector('.menu')
 const sideMenu = document.querySelector('.mobile-menu')
 const aside = document.querySelector('.product-detail')
+const productDetailContainer = document.querySelector('.product-detail__cart')
 
 const cardContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 burguerMenu.addEventListener('click', toggleSideMenu)
 menuCarritoIcon.addEventListener('click', toggleMenuCarritoAside)
+productCloseIcon.addEventListener('click', closeProductDetailCart)
 
 
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive')
     aside.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 }
 function toggleSideMenu(){
     sideMenu.classList.toggle('inactive')
     aside.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
+    
 }
 function toggleMenuCarritoAside(){
     aside.classList.toggle('inactive')
     sideMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
+}
+
+function openProductDetailCart(){
+    productDetailContainer.classList.remove('inactive')
+    sideMenu.classList.add('inactive')
+    aside.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+}
+function closeProductDetailCart(){
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -53,6 +69,7 @@ function renderProducts(arr){
     
         const img = document.createElement('img')
         img.setAttribute('src', product.image);
+        img.addEventListener('click', openProductDetailCart)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info');
@@ -76,7 +93,6 @@ function renderProducts(arr){
     
         cardContainer.append(productcard)
     }
-    console.log('funciona?');
 }
 
 renderProducts(productList)

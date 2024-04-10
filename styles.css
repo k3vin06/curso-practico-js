@@ -294,6 +294,7 @@ ul li {
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    z-index: 6;
 }
 .product-detail-close {
     background: var(--white);
